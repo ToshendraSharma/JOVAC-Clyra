@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    font-size: 24px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.header .actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+/* Hero Banner */
+
+.hero-banner {
+    background: linear-gradient(to right, #ff4081, #ff9800);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+
+/* Categories */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.category-card {
+    background: #f4f4f4;
+    padding: 15px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.category-card:hover {
+    background: #e0e0e0;
+}
+
+
+/* Deals Strip */
+
+.deals-strip {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* Brands */
+
+.brands {
+    text-align: center;
+    padding: 30px;
+}
+
+.brand-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.brand-card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+
+/* Products */
+
+.products,
+.recommendations {
+    padding: 30px;
+    text-align: center;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.product-card {
+    background: #f4f4f4;
+    padding: 30px;
+    width: 120px;
+    border-radius: 6px;
+}
+
+
+/* Footer */
+
+.footer {
+    background: #111;
+    color: #ccc;
+    padding: 20px 30px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.footer h4 {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
