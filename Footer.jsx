@@ -7,9 +7,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <h3>Clyra</h3>
-            <p>
-              Your fashion destination where style meets affordability. Buy or rent the latest trends and express your unique style.
-            </p>
+            <p>Your fashion destination where style meets affordability. Buy or rent the latest trends and express your unique style.</p>
           </div>
           <div className="footer-section">
             <h3>Quick Links</h3>
@@ -43,11 +41,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>
-            &copy; 2025 Clyra. All rights reserved. |{' '}
-            <a href="#" style={{ color: '#bdc3c7', textDecoration: 'none' }}>Privacy Policy</a> |{' '}
-            <a href="#" style={{ color: '#bdc3c7', textDecoration: 'none' }}>Terms of Service</a>
-          </p>
+          <p>&copy; 2025 Clyra. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
       </div>
     </footer>
