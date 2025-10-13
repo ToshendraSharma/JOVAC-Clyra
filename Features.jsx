@@ -17,7 +17,7 @@ const Features = () => {
             <p>Rent designer clothes for special occasions. Look stunning without breaking the bank.</p>
           </div>
           <div className="feature-item">
-            <div className="feature-icon">↩</div>
+            <div className="feature-icon">↩️</div>
             <h3>Easy Returns</h3>
             <p>30-day return policy. Not satisfied? Return it for a full refund.</p>
           </div>
