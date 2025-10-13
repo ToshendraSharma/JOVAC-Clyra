@@ -8,7 +8,7 @@ const Hero = () => {
           Welcome to <span className="typewriter">Clyra</span>
         </h1>
         <p>Fashion Forward • Rent or Buy • Your Style, Your Choice</p>
-        <Link to="/products" className="cta-button">Shop Now</Link>
+        <a href="#products" className="cta-button">Shop Now</a>
       </div>
     </section>
   );
