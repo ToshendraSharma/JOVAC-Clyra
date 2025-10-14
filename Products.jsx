@@ -5,7 +5,7 @@ const Products = ({ onAddToCart }) => {
     {
       id: 1,
       title: 'Designer Silk Saree',
-      image: 'https://i.pinimg.com/736x/e1/b8/fe/e1b8fe0405c0212edfd4b17416412d7c.jpg',
+      image: 'saree.jpg',
       alt: 'Designer Saree',
       buyPrice: '₹2,999',
       rentPrice: '₹299/day',
@@ -15,8 +15,8 @@ const Products = ({ onAddToCart }) => {
     {
       id: 2,
       title: 'Denim Jacket',
-      image: 'https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=400',
-      alt: 'Designer Kurta',
+      image: 'denim jacket.jpg',
+      alt: 'Denim Jacket',
       buyPrice: '₹2,499',
       rentPrice: '₹299/day',
       rating: '⭐⭐⭐⭐⭐',
@@ -25,7 +25,7 @@ const Products = ({ onAddToCart }) => {
     {
       id: 3,
       title: 'Evening Gown',
-      image: 'https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'evening gown.jpg',
       alt: 'Evening Gown',
       buyPrice: '₹18,999',
       rentPrice: '₹1,899/day',
@@ -35,7 +35,7 @@ const Products = ({ onAddToCart }) => {
     {
       id: 4,
       title: 'Wedding Lehenga',
-      image: 'https://i.pinimg.com/736x/ca/75/a3/ca75a3d7fb953fd10be6c378703d972b.jpg',
+      image: 'Lehenga.jpg',
       alt: 'Wedding Lehenga',
       buyPrice: '₹45,999',
       rentPrice: '₹4,599/day',
@@ -45,7 +45,7 @@ const Products = ({ onAddToCart }) => {
     {
       id: 5,
       title: 'Premium Suit',
-      image: '/premium suits.webp',
+      image: 'suit.jpg',
       alt: 'Formal Suit',
       buyPrice: '₹25,999',
       rentPrice: '₹2,599/day',
@@ -55,7 +55,7 @@ const Products = ({ onAddToCart }) => {
     {
       id: 6,
       title: 'Party Dress',
-      image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'party dress.jpg',
       alt: 'Party Dress',
       buyPrice: '₹6,999',
       rentPrice: '₹699/day',

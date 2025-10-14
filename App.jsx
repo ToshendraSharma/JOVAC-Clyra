@@ -53,6 +53,12 @@ function App() {
     }, 0);
   };
 
+  const handleCheckout = () => {
+    // Placeholder for checkout logic (e.g., redirect to payment page)
+    alert('Proceeding to checkout...'); // Replace with actual implementation
+    setShowCart(false);
+  };
+
   return (
     <div className="App">
       <Header cartCount={getCartCount()} onCartClick={() => setShowCart(true)} />
@@ -72,6 +78,8 @@ function App() {
           onUpdateQuantity={updateQuantity}
           onRemove={removeFromCart}
           subtotal={getSubtotal()}
+          onCheckout={handleCheckout}
+          isEmpty={cartItems.length === 0}
         />
       )}
     </div>

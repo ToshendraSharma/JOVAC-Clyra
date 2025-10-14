@@ -1,0 +1,275 @@
+/* Cart Modal Overlay - Full coverage on all devices */
+
+.cart-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Full viewport height for immersion */
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease;
+    padding: 20px;
+    /* Small padding on edges for very small phones */
+}
+
+
+/* Cart Modal - Balanced dimensions */
+
+.cart-modal {
+    background: white;
+    border-radius: 20px;
+    width: 100%;
+    /* Full width within overlay padding */
+    max-width: 700px;
+    /* Base max for tablets/small laptops */
+    height: 90vh;
+    /* Taller base height for more content visibility */
+    max-height: 90vh;
+    overflow-y: auto;
+    /* Scroll if needed */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    animation: slideInUp 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Ensure vertical stacking */
+}
+
+
+/* Cart Header - Consistent padding */
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    /* Slightly reduced for more content space */
+    border-bottom: 1px solid #e9ecef;
+    background: #f8f9fa;
+    flex-shrink: 0;
+    /* Prevent header from shrinking */
+}
+
+
+/* Cart Body - Flexible height */
+
+.cart-body {
+    padding: 1.5rem;
+    flex: 1;
+    /* Take remaining space */
+    overflow-y: auto;
+    /* Scroll body independently if many items */
+}
+
+
+/* Cart Total - Fixed at bottom */
+
+.cart-total {
+    padding: 1.5rem;
+    border-top: 2px solid #e9ecef;
+    text-align: right;
+    flex-shrink: 0;
+    /* Stay at bottom */
+    background: #f8f9fa;
+    /* Subtle separation */
+}
+
+
+/* Empty Cart State - Centered and spacious */
+
+.empty-cart {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #6c757d;
+}
+
+.empty-cart h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.empty-cart p {
+    font-size: 1rem;
+}
+
+
+/* Mobile: Full-screen feel, compact dimensions */
+
+@media (max-width: 768px) {
+    .cart-modal-overlay {
+        padding: 10px;
+        /* Minimal edge padding */
+        align-items: flex-start;
+        /* Start from top to maximize height */
+        padding-top: 20px;
+        /* Account for browser chrome */
+    }
+    .cart-modal {
+        width: 100%;
+        height: 100vh;
+        /* Full height on mobile */
+        max-height: 100vh;
+        border-radius: 15px 15px 0 0;
+        /* Rounded top only, flat bottom like native modals */
+        margin: 0;
+        /* No margins */
+    }
+    .cart-header,
+    .cart-body,
+    .cart-total {
+        padding: 1.2rem;
+        /* Reduced padding for more content */
+    }
+    .cart-item {
+        flex-direction: column;
+        /* Stack vertically */
+        text-align: center;
+        gap: 1rem;
+        padding: 1.2rem 0;
+        /* Less vertical space per item */
+    }
+    .cart-item-image {
+        width: 80px;
+        /* Compact but visible */
+        height: 80px;
+        align-self: center;
+        /* Center image */
+    }
+    .cart-item-details {
+        width: 100%;
+        /* Full width on mobile */
+    }
+    .quantity-controls {
+        justify-content: center;
+        /* Center controls */
+        gap: 1rem;
+        /* More space for fingers */
+    }
+    .quantity-controls button {
+        width: 40px;
+        /* Larger for touch */
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    .quantity-controls span {
+        font-size: 1.2rem;
+        padding: 0 0.5rem;
+        /* More tappable area */
+    }
+    .remove-btn {
+        width: 100%;
+        /* Full-width for easy tap */
+        margin-top: 0.5rem;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+    .checkout-btn {
+        padding: 1rem;
+        font-size: 1.1rem;
+        /* Larger text for readability */
+    }
+    /* Small phones (≤480px) - Even more compact */
+    @media (max-width: 480px) {
+        .cart-header,
+        .cart-body,
+        .cart-total {
+            padding: 1rem;
+            /* Tighter on very small screens */
+        }
+        .cart-item-image {
+            width: 70px;
+            height: 70px;
+        }
+        .empty-cart {
+            padding: 2rem 1rem;
+        }
+        .empty-cart h3 {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+
+/* Laptop/Desktop: Wider, more spacious */
+
+@media (min-width: 1024px) {
+    .cart-modal {
+        max-width: 850px;
+        /* Slightly wider than base for laptops */
+        height: 85vh;
+        /* Slightly shorter to center better */
+        max-height: 85vh;
+    }
+    .cart-modal-overlay {
+        padding: 40px;
+        /* More padding around modal on large screens */
+    }
+    .cart-header,
+    .cart-body,
+    .cart-total {
+        padding: 2rem;
+        /* More generous padding */
+    }
+    .cart-item {
+        gap: 2rem;
+        /* Wider gaps for horizontal layout */
+        padding: 2rem 0;
+    }
+    .cart-item-image {
+        width: 100px;
+        /* Larger images for detail */
+        height: 100px;
+    }
+    .cart-item-details h3 {
+        font-size: 1.3rem;
+        /* Bigger titles */
+    }
+    .cart-item-price {
+        font-size: 1.2rem;
+    }
+    .quantity-controls {
+        gap: 1rem;
+    }
+    .quantity-controls button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    .remove-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        min-width: 100px;
+        /* Ensure consistent size */
+    }
+    .checkout-btn {
+        padding: 1.2rem 3rem;
+        font-size: 1.2rem;
+        max-width: 250px;
+        /* Not full-width on desktop */
+    }
+    /* Ultra-wide laptops (≥1440px) - Even more premium */
+    @media (min-width: 1440px) {
+        .cart-modal {
+            max-width: 950px;
+            /* Wider for big screens */
+        }
+        .cart-item-image {
+            width: 120px;
+            height: 120px;
+        }
+        .cart-item {
+            gap: 2.5rem;
+        }
+        .cart-header,
+        .cart-body,
+        .cart-total {
+            padding: 2.5rem;
+        }
+    }
+}
