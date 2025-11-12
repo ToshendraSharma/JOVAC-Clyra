@@ -1,88 +1,84 @@
-import React from 'react';
-//import './Cart.css'; // Optional: If you want additional Cart-specific styles, but the main styles are in Clyra.css
 
-const Cart = ({ 
-  cartItems, 
-  onClose, 
-  onUpdateQuantity, 
-  onRemove, 
-  subtotal, 
-  onCheckout, 
-  isEmpty 
-}) => {
-  const incrementQuantity = (id) => {
-    const currentItem = cartItems.find(item => item.id === id);
-    onUpdateQuantity(id, currentItem.quantity + 1);
+import React, { useState, useMemo } from "react";
+import Cart from "./Cart";
+
+export default function App() {
+ 
+  const [cartItems, setCartItems] = useState([
+    { id: 1, title: "Hand-Painted Ceramic Mug", buyPrice: "₹399", quantity: 1, image: "" },
+    { id: 2, title: "Cozy Blanket", buyPrice: "₹1,299", quantity: 1, image: "" }
+  ]);
+
+  
+  const subtotal = useMemo(() => {
+    return cartItems.reduce((sum, it) => {
+      const price = parseInt(String(it.buyPrice).replace(/[^0-9]/g, "")) || 0;
+      return sum + price * (it.quantity || 1);
+    }, 0);
+  }, [cartItems]);
+
+  const handleUpdateQuantity = (id, newQty) => {
+    setCartItems(prev => prev.map(it => it.id === id ? { ...it, quantity: Math.max(1, newQty) } : it));
   };
 
-  const decrementQuantity = (id) => {
-    const currentItem = cartItems.find(item => item.id === id);
-    onUpdateQuantity(id, currentItem.quantity - 1);
+  const handleRemove = (id) => {
+    setCartItems(prev => prev.filter(it => it.id !== id));
+  };
+
+  const handleCloseCart = () => {
+  
+  };
+
+
+  const handleCheckout = async () => {
+    if (!cartItems || cartItems.length === 0) {
+      alert("Cart is empty");
+      return;
+    }
+
+    const orderData = {
+      items: cartItems.map(i => ({
+        id: i.id,
+        title: i.title,
+        price: parseInt(String(i.buyPrice).replace(/[^0-9]/g, "")) || 0,
+        qty: i.quantity
+      })),
+      subtotal
+    };
+
+    try {
+    
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(orderData)
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Checkout failed");
+
+      alert(`Order placed! Order ID: ${data.orderId}`);
+      
+      setCartItems([]);
+    } catch (err) {
+      console.error("Checkout error:", err);
+      alert("Checkout failed: " + err.message);
+    }
   };
 
   return (
-    <div className="cart-modal-overlay" onClick={onClose}>
-      <div className="cart-modal" onClick={(e) => e.stopPropagation()}>
-        <div className="cart-header">
-          <h2>Shopping Cart</h2>
-          <button className="close-btn" onClick={onClose} aria-label="Close cart">
-            &times;
-          </button>
-        </div>
-
-        <div className="cart-body">
-          {isEmpty ? (
-            <div className="empty-cart">
-              <h3>Your cart is empty</h3>
-              <p>Add some products to get started!</p>
-            </div>
-          ) : (
-            <>
-              {cartItems.map((item) => {
-                const price = parseInt(item.buyPrice.replace('₹', '').replace(',', ''));
-                const itemTotal = price * item.quantity;
-
-                return (
-                  <div key={item.id} className="cart-item">
-                    <img 
-                      src={item.image || '/placeholder-image.jpg'} // Fallback if no image
-                      alt={item.title}
-                      className="cart-item-image"
-                    />
-                    <div className="cart-item-details">
-                      <h3>{item.title}</h3>
-                      <div className="cart-item-price">₹{itemTotal.toLocaleString()}</div>
-                      <div className="quantity-controls">
-                        <button onClick={() => decrementQuantity(item.id)}>-</button>
-                        <span>{item.quantity}</span>
-                        <button onClick={() => incrementQuantity(item.id)}>+</button>
-                      </div>
-                    </div>
-                    <button 
-                      className="remove-btn" 
-                      onClick={() => onRemove(item.id)}
-                      aria-label={`Remove ${item.title} from cart`}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                );
-              })}
-            </>
-          )}
-        </div>
-
-        {!isEmpty && (
-          <div className="cart-total">
-            <h3>Subtotal: ₹{subtotal.toLocaleString()}</h3>
-            <button className="checkout-btn" onClick={onCheckout}>
-              Proceed to Checkout
-            </button>
-          </div>
-        )}
-      </div>
+    <div>
+      <h1>Your Store</h1>
+      {    }
+      <Cart
+        cartItems={cartItems}
+        onClose={handleCloseCart}
+        onUpdateQuantity={handleUpdateQuantity}
+        onRemove={handleRemove}
+        subtotal={subtotal}
+        isEmpty={cartItems.length === 0}
+        onCheckout={handleCheckout}    
+      />
     </div>
   );
-};
-
-export default Cart;
+}

@@ -1,16 +1,19 @@
 import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-const About = () => {
-  return (
-    <section id="about" style={{ background: 'rgba(255,255,255,0.97)', padding: '60px 0' }}>
-      <div className="container">
-        <h2 className="section-title">About Us</h2>
-        <p style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center', fontSize: '1.1rem' }}>
-          Clyra is your one-stop destination for the latest fashion trends. We offer a unique platform where you can buy or rent premium clothing and accessories for every occasion. Our mission is to make style accessible, affordable, and sustainable for everyone.
-        </p>
-      </div>
-    </section>
-  );
-};
+import App from '../App.jsx'; 
 
-export default About;
+import '../index.css'; 
+
+
+const rootElement = document.getElementById('root');
+if (rootElement) {
+    ReactDOM.createRoot(rootElement).render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>,
+    );
+} else {
+ 
+    console.error("Critical Error: Cannot find HTML element with ID 'root'. The application cannot render.");
+}
